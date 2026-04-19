@@ -9,6 +9,8 @@ tags: [contract, adr, architecture]
 
 # ADR contract
 
+> Worked example for the [contracts skill](contracts.md). Demonstrates the `<name>_contract.md` shape the skill audits artifacts against. This contract itself conforms to `contracts.md§Reference: contract_contract` (the meta-contract); running `/audit --contract contracts_example_adr.md` on this file should be clean.
+
 ## What this governs
 
 `docs/adr/<NNNN>-<kebab-slug>.md` files. One ADR per file. The number `<NNNN>` is monotonic (zero-padded 4-digit), assigned at creation. The slug is a short human-readable summary of the decision (e.g. `0007-use-postgres-for-events.md`).
@@ -44,8 +46,8 @@ Required keys: `id`, `title`, `status`, `date`, `deciders`, `contract_version`, 
 1. **`# ADR <NNNN>: <title>`** — H1 mirroring the title
 2. **`## Context`** — the problem + the conditions that forced the decision; what would happen without one
 3. **`## Decision`** — the choice made, in active voice ("we will use Postgres for the event log")
-4. **`## Alternatives considered`** — at least 2 alternatives + why each was rejected. Each alternative as a `### <name>` subsection
-5. **`## Consequences`** — what this enables, what it constrains, follow-on work it requires. Both positive and negative consequences
+4. **`## Alternatives considered`** — at least 2 alternatives + why each was rejected. Each as a `### <name>` subsection
+5. **`## Consequences`** — what this enables, what it constrains, follow-on work it requires. Both positive and negative
 6. **`## References`** — links to related design docs, prior ADRs, external resources. Use wikilinks for in-repo refs
 
 ## Cross-reference rules
@@ -71,7 +73,7 @@ Required keys: `id`, `title`, `status`, `date`, `deciders`, `contract_version`, 
 - **context-not-solution** — `## Context` describes the problem space, not the decision. If `## Context` reads "we need to use Postgres because…" it's leaking the answer; rewrite to describe the forcing function only.
 - **deciders-non-empty** — `deciders: []` is forbidden. At least one deciding person/team named (anonymity is fine: "the data team" but not blank).
 - **status-frozen-fields-untouched** — for `status: accepted` ADRs, `## Decision` and `## Context` haven't been edited since the date. (Detectable from git log; auditor flags suspected drift.)
-- **wikilinks-resolve** — every wikilink in `## References` resolves to an existing repo file (Phase 1 verifies; you verify they make CONTEXTUAL sense — a reference cited as the inspiration should actually relate to the decision).
+- **wikilinks-resolve** — every wikilink in `## References` resolves to an existing repo file. Phase 1 verifies; you verify they make CONTEXTUAL sense.
 
 ## Sibling files
 

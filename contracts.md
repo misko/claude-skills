@@ -724,9 +724,12 @@ migration_kind: "rationale_needs_specifics"
 
 ---
 
-## Worked example
+## Worked examples
 
-See `contracts_example_adr.md` (sibling file) for a full ADR contract demonstrating the `<name>_contract.md` shape this skill audits against. That example contract is itself audited against the meta-contract above; if `contracts_example_adr.md` ever drifts from `## Reference: contract_contract`, you'll see it in any `/audit --contract contracts_example_adr.md` run.
+Two sibling files demonstrate the `<name>_contract.md` shape this skill audits against. Both are themselves audited against the meta-contract above; if either drifts from `## Reference: contract_contract`, you'll see it in `/audit --contract <example>` runs.
+
+- **`contracts_example_adr.md`** — Architectural Decision Records. Shows: immutability-once-accepted (frozen `## Decision` and `## Context` after `status: accepted`), supersession via new ADRs (reciprocal `supersedes` / `superseded_by`), enforced alternatives-considered with engagement (not strawmen), required negative-consequences listing.
+- **`contracts_example_experiment.md`** — Reproducible experiments. Shows: standalone-reproducibility discipline (`exp<NNN>-<slug>/` folders, pinned `runtime_env`, concrete `seed`, no absolute paths), per-feature provenance with strict 1:1 mapping between `## Input features` subsections and `inputs/` directory contents, executable-not-narrative sanity check, schema-not-prose output format, pre-registration on `## Background` / `## Task` / `## Approach` (frozen at `status: complete`; revision means a new experiment with `parent:` link).
 
 ---
 

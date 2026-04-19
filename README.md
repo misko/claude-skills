@@ -26,4 +26,7 @@ You author one `<name>_contract.md` per artifact kind; the skill runs three orth
 - **Phase 1** — fast deterministic Python audit (when a paired script exists)
 - **Phase 2** — per-artifact LLM Auditor swarm reading the contract's `## Semantic audit checks` + applying generic content-vs-spec judgment (sycophancy, generic-vs-specific, pre-registration drift)
 
-Plus `--fix` for parallel Fixer subagents per migration_kind, with multi-round convergence. See `contracts_example_adr.md` for a worked example (Architectural Decision Records).
+Plus `--fix` for parallel Fixer subagents per migration_kind, with multi-round convergence. Two worked examples:
+
+- **`contracts_example_adr.md`** — Architectural Decision Records contract (immutable-once-accepted, supersession via new ADRs, alternatives + negative consequences enforced).
+- **`contracts_example_experiment.md`** — Reproducible experiments contract (`exp<NNN>-<slug>/` folders, per-feature provenance, executable sanity check, schema'd output format, pre-registration discipline on Background/Task/Approach).
